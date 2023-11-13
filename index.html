@@ -1,0 +1,36 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <meta charset="utf-8"/> 
+  <title> Máquina de cobrar</title> 
+  <script> 
+    function comprobar(dato) { 
+      const edad = Number(dato);
+      const resultado = (edad > 65) ? 1 : (edad >= 18) ? 2.5 : 0;
+      return resultado;
+    } 
+
+    function verPantalla(valor) { 
+      // Corregir la forma de acceder al elemento de salida
+      document.getElementById("salida").innerHTML += (`</br>El precio es ${valor} euro`);
+    } 
+
+    function inicio(dato) { 
+      if (dato.trim() === "") {
+        alert("Por favor, introduce una edad antes de comprobar.");
+      } else {
+        const precio = comprobar(dato);
+        verPantalla(precio);
+      }
+    } 
+  </script> 
+</head> 
+<body> 
+  <form name="formu_votacion"> 
+    Introduce edad: <input type="text" name="entrada"/> 
+    <input type="button" value="comprueba" onclick="inicio(entrada.value)" /> 
+  </form> 
+  <div id="salida"></div> 
+</body> 
+</html>
+
